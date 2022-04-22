@@ -219,7 +219,7 @@ void SHA1::buffer_to_block(BufferOutputStream& buffer, uint32_t block[BLOCK_INTS
   if(readSize > buffer.getCurrentPosition()) {
     readSize = buffer.getCurrentPosition();
   }
-  memcpy(block, buffer.getData(), readSize);
+  memcpy(block, buffer.getData(), (size_t)readSize);
   for(v_int32 i = 0; i < BLOCK_INTS; i ++) {
     block[i] = ntohl(block[i]);
   }
